@@ -1,0 +1,60 @@
+.navbar {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 50px;
+  padding-left: 7%;
+  font-family: 'Italianno', cursive;
+}
+
+.nav-item-btn {
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.nav-item > a {
+  color: #333 !important;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 15px 20px;
+  transition: 0.3s;
+}
+.nav-item > a:hover {
+  color: rgb(0, 0, 0) !important;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: transparent !important;
+}
+.nav-item > a::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: black;
+  display: block;
+  transition: 0.5s;
+}
+
+.nav-item > a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    text-align: left;
+    width: 100%;
+  }
+  .navbar-nav .nav-item {
+    margin-left: 0 !important;
+    padding-left: 3%;
+  }
+  .navbar-nav > li > a:hover::after {
+    width: 20%;
+  }
+  .nav-item-btn {
+    padding-left: 30px;
+    padding-bottom: 10px;
+  }
+}
