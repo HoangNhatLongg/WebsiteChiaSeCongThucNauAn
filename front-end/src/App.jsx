@@ -1,6 +1,8 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Slider from './components/Slider';
+import PostFilterBar from './components/PostFilterBar';
+import Home from './assets/pages/Home';
 import './App.css';
 
 function App() {
@@ -8,10 +10,7 @@ function App() {
     <>
       <Navbar />
       <Slider />
-      <div className="container mt-5">
-        <h1>Chào mừng bạn đến với CookBook 🍲</h1>
-        <p>Trang web chia sẻ công thức nấu ăn bằng React + Bootstrap 5!</p>
-      </div>
+      <Home />
     </>
   );
 }

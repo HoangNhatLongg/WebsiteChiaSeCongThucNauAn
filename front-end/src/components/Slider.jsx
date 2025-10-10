@@ -1,4 +1,4 @@
-import React from 'react';
+
 import './Slider.css';
 import slider1 from '../assets/Image/Slider.jpg';
 
