@@ -1,13 +1,26 @@
-.post-card {
-  background-color: #222;
-  color: white;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  max-width: 600px;
-  margin: 20px auto;
+/* Toàn bộ danh sách bài đăng */
+.post-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Căn giữa toàn bộ post */
+  gap: 24px;
+  padding: 20px 0;
 }
 
+/* Thẻ bài viết */
+.post-card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  width: 100%;
+  max-width: 800px; /* ✅ Giới hạn độ rộng post */
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Header bài viết */
 .post-header {
   display: flex;
   align-items: center;
@@ -15,44 +28,213 @@
 }
 
 .post-avatar {
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   margin-right: 10px;
+  object-fit: cover;
 }
 
+.post-info h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.post-info span {
+  font-size: 12px;
+  color: var(--muted-text);
+}
+
+.post-options {
+  margin-left: auto;
+  position: relative;
+}
+
+/* Nút tuỳ chọn */
+.post-options button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--muted-text);
+  cursor: pointer;
+}
+
+.post-options button:hover {
+  color: var(--accent-color);
+}
+
+/* Menu tùy chọn */
+.post-menu {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 10;
+  min-width: 150px;
+  padding: 5px 0;
+}
+
+.post-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 13px;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.post-menu button:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+/* Popup báo cáo */
+.report-popup {
+  position: absolute;
+  top: 70px;
+  right: 0;
+  background: var(--bs-body-bg);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+  padding: 15px;
+  width: 250px;
+  z-index: 20;
+}
+
+.report-popup h5 {
+  margin: 0 0 8px 0;
+  font-size: 15px;
+}
+
+.report-popup ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.report-popup li {
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.2s;
+}
+
+.report-popup li:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.close-report-btn {
+  margin-top: 10px;
+  width: 100%;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.close-report-btn:hover {
+  opacity: 0.9;
+}
+
+/* Nội dung bài viết */
+.post-content p {
+  margin-top: 10px;
+  font-size: 16px;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+/* Grid ảnh/video */
 .post-media-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 6px;
   margin-top: 10px;
 }
 
 .post-media-wrapper {
   position: relative;
-  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
 }
 
+/* ✅ Ảnh/video luôn fill đầy khung */
 .post-media-item {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
+  height: 100%;/* hoặc 16/9 nếu bạn muốn khung ngang */
+  object-fit: cover; /* 🔥 fill đầy khung */
+  border-radius: 10px;
 }
 
+.post-media-wrapper:hover .post-media-item,
+.post-media-wrapper:hover .post-media-item-video {
+  transform: scale(1.03); /* 🆕 hiệu ứng */
+}
+
+
+/* ✅ Video tuỳ chỉnh để không méo */
+.post-media-item-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Overlay hiển thị số ảnh còn lại */
 .image-overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.6);
   color: white;
-  font-size: 2rem;
+  font-size: 24px;
+  font-weight: bold;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-radius: 8px;
+  justify-content: center;
+}
+
+/* Footer */
+.post-footer {
+  margin-top: 12px;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid var(--border-color);
+  padding-top: 10px;
+}
+
+.post-actions button {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 15px;
+  transition: color 0.2s ease;
+}
+
+.post-actions button:hover {
+  color: var(--accent-color);
 }
 
 /* Lightbox */
@@ -60,17 +242,79 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0,0,0,0.9);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 2000;
+  justify-content: center;
+  z-index: 1000;
 }
 
-.lightbox img, .lightbox video {
+.lightbox img,
+.lightbox video {
   max-width: 90%;
-  max-height: 90%;
+  max-height: 85%;
   border-radius: 10px;
+  object-fit: contain;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 36px;
+  color: white;
+  cursor: pointer;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  user-select: none;
+  transition: background 0.3s;
+}
+
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.lightbox-nav.left {
+  left: 30px;
+}
+
+.lightbox-nav.right {
+  right: 30px;
+}
+
+/* 🌙 Giao diện sáng/tối */
+@media (prefers-color-scheme: light) {
+  :root {
+    --card-bg: #fff;
+    --text-color: #222;
+    --muted-text: #555;
+    --border-color: #ddd;
+    --accent-color: #007bff;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --card-bg: #1e1e1e;
+    --text-color: #eee;
+    --muted-text: #aaa;
+    --border-color: #333;
+    --accent-color: #4da3ff;
+  }
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .post-card {
+    width: 95%;
+    padding: 12px;
+  }
+
+  .post-media-item {
+    aspect-ratio: 1 / 1;
+    height: auto;
+  }
 }

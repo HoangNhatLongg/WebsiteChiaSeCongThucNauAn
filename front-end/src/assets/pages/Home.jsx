@@ -14,13 +14,7 @@ export default function Home() {
       avatar: "https://i.pravatar.cc/150?img=3",
       time: "Hôm qua lúc 16:47",
       text: "Manifest: 3 tháng cuối năm công việc thuận lợi, tinh thần thoải mái, sức khoẻ dồi dào 💪",
-      images: [
-        "/images/pho.jpg",
-        "/images/pic2.jpg",
-        "/images/pic3.jpg",
-        "/images/pic4.jpg",
-        "/images/pic5.jpg",
-      ],
+      images: ["/images/pho.jpg"],
       category: "Món ăn mới",
     },
     {
@@ -29,7 +23,8 @@ export default function Home() {
       avatar: "https://i.pravatar.cc/150?img=5",
       time: "2 giờ trước",
       text: "Cuối tuần mình làm món bún chả, thơm lừng cả nhà 😋",
-      images: ["/images/buncha1.jpg", "/images/buncha2.jpg"],
+      images: ["/images/pho.jpg", "/images/Anh1.jpg", "/images/Anh1.jpg", "/images/Anh1.jpg", "/images/Anh1.jpg"],
+      videos: ["/videos/ThitKhoTieu.mp4"],
       category: "Món ăn trưa",
     },
     {
@@ -38,7 +33,7 @@ export default function Home() {
       avatar: "https://i.pravatar.cc/150?img=8",
       time: "3 ngày trước",
       text: "Cùng xem lại video hướng dẫn làm bánh flan siêu mịn nè 🎥",
-      videos: ["/videos/demo1.mp4"],
+      videos: ["/videos/ThitKho.mp4"],
       category: "Đồ ngọt",
     },
     {
