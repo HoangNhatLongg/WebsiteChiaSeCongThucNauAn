@@ -12,7 +12,7 @@
   background-color: var(--card-bg);
   color: var(--text-color);
   width: 100%;
-  max-width: 800px; /* ✅ Giới hạn độ rộng post */
+  max-width: 600px; /* ✅ Giới hạn độ rộng post */
   border-radius: 12px;
   padding: 16px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
@@ -182,10 +182,6 @@
   border-radius: 10px;
 }
 
-.post-media-wrapper:hover .post-media-item,
-.post-media-wrapper:hover .post-media-item-video {
-  transform: scale(1.03); /* 🆕 hiệu ứng */
-}
 
 
 /* ✅ Video tuỳ chỉnh để không méo */
